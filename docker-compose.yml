@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  back:
+    container_name: docker_back
+    restart: always
+    expose:
+      - 9000
+    ports:
+      - 9000:9000
+    image: "nplskh/final_back:latest"
+  front:
+    container_name: docker_front
+    restart: always
+    depends_on:
+      - back
+    expose:
+      - 3000
+    ports:
+      - 3000:3000
+    image: "nplskh/final_front:latest"
+
